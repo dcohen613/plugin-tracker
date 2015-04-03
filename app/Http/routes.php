@@ -11,4 +11,4 @@
 |
 */
 
-Route::get('/', 'WelcomeController@index');
+Route::post('/', 'VerificationsController@store');
