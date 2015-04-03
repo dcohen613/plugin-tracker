@@ -6,6 +6,25 @@ server {
 
     charset utf-8;
 
+          location /phpmyadmin {
+               root /usr/share/;
+               index index.php index.html index.htm;
+               try_files $uri $uri/ /index.php index.php;
+
+               location ~ \.php$ {
+                fastcgi_split_path_info ^(.+\.php)(/.+)$;
+                # fastcgi_pass 127.0.0.1:9000;
+                # With php5-fpm:
+                fastcgi_pass unix:/var/run/php5-fpm.sock;
+                fastcgi_index index.php;
+                include fastcgi_params;
+                }
+        }
+
+        location /phpMyAdmin {
+               rewrite ^/* /phpmyadmin last;
+        }
+
     location / {
         try_files $uri $uri/ /index.php?$query_string;
     }
