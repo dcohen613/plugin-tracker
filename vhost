@@ -1,6 +1,6 @@
 server {
     listen 80;
-    root "/home/deployer/laravel5-establish/public";
+    root "/home/deployer/plugin-tracker/public";
 
     index index.html index.htm index.php;
 
@@ -13,8 +13,8 @@ server {
     location = /favicon.ico { access_log off; log_not_found off; }
     location = /robots.txt  { access_log off; log_not_found off; }
 
-    access_log /var/log/nginx/laravel5-establish-acccess.log;
-    error_log  /var/log/nginx/laravel5-establish-error.log error;
+    access_log /var/log/nginx/plugin-tracker-acccess.log;
+    error_log  /var/log/nginx/plugin-tracker-error.log error;
 
     client_max_body_size 100m;
 
